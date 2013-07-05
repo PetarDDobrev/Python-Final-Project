@@ -1,7 +1,8 @@
 import pygame
 from pygame.locals import *
 from animated_texture import*
-from settings import*
+from settings import MAX_WEAPON_COOLDOWN, MAX_WEAPON_CHARGE, MAX_WEAPON_POWER
+from settings import IMMORTAL_TIME
 
 
 class Player:

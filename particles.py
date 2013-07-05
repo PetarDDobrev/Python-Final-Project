@@ -1,5 +1,5 @@
 from animated_texture import*
-from settings import *
+from settings import EXP_ANIM_SPEED
 
 
 class Particle:

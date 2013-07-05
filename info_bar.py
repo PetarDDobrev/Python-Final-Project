@@ -1,7 +1,8 @@
 import pygame
 from animated_texture import*
-from settings import*
-
+from settings import BAR_BG_TEXTURE, BAR_POS, FONT, FONT_SIZE, FONT_COLOR
+from settings import BEAM_TEXTURE, BEAM_FILL_TEXTURE, BEAM_POS, SCORE_POS
+from settings import LIVES_POS
 
 class Bar():
     def __init__(self):

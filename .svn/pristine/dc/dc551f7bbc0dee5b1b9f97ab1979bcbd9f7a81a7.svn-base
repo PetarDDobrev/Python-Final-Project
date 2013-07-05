@@ -1,0 +1,40 @@
+import unittest
+import pygame
+import sounds
+from animated_texture import*
+
+pygame.init()
+
+
+class SoundTest(unittest.TestCase):
+    def setUp(self):
+        self.sounds_manager = sounds.SoundManager()
+
+    def test_volume_distance_one(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(0, 0))
+        self.assertEqual(volume, 0)
+
+    def test_volume_distance_two(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(1000, 0))
+        self.assertEqual(volume, 0.5)
+
+    def test_volume_distance_three(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(1500, 0))
+        self.assertEqual(volume, 0.75)
+
+    def test_volume_distance_four(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(1900, 0))
+        self.assertEqual(volume, 0.95)
+
+    def test_volume_distance_five(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(2000, 0))
+        self.assertEqual(volume, 1)
+
+
+class AnimationTest(unittest.TestCase):
+    def test_animation_pause(self):
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()

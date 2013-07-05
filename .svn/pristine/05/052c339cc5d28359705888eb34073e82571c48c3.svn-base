@@ -1,0 +1,78 @@
+import unittest
+import pygame
+import sounds
+from animated_texture import*
+from collision import*
+from game import draw
+
+pygame.init()
+
+
+class SoundTest(unittest.TestCase):
+    def setUp(self):
+        self.sounds_manager = sounds.SoundManager()
+
+    def test_volume_distance_one(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(0, 0))
+        self.assertEqual(volume, 0)
+
+    def test_volume_distance_two(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(1000, 0))
+        self.assertEqual(volume, 0.5)
+
+    def test_volume_distance_three(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(1500, 0))
+        self.assertEqual(volume, 0.75)
+
+    def test_volume_distance_four(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(1900, 0))
+        self.assertEqual(volume, 0.95)
+
+    def test_volume_distance_five(self):
+        volume = self.sounds_manager.volume(Vector2(2000, 0), Vector2(2000, 0))
+        self.assertEqual(volume, 1)
+
+
+class AnimationTest(unittest.TestCase):
+    def setUp(self):
+        self.anim = AnimatedTexture("Assets/expl_fire_1.png", 6, 5)
+        self.surface = surf_map = Surface((200, 1000), pygame.SRCALPHA)
+
+    def test_animation_pause_one(self):
+        self.anim.paused = True
+        for n in range(20):
+            self.anim.draw(self.surface, Vector2(0, 0))
+            self.assertEqual(self.anim.frame, 0)
+
+    def test_animation_pause_two(self):
+        self.anim.paused = False
+        for n in range(self.anim.speed):
+            self.anim.draw(self.surface, Vector2(0, 0))
+        self.assertEqual(self.anim.frame, 1)
+
+    def test_animation_one(self):
+        self.anim.paused = False
+        self.anim.frame = 0
+        anim_loops_number = 5
+        for n in range(anim_loops_number):
+            for i in range(self.anim.max_frame):
+                self.assertEqual(self.anim.frame, i)
+                for y in range(self.anim.speed):
+                    self.anim.draw(self.surface, Vector2(0, 0))
+            self.anim.draw(self.surface, Vector2(0, 0))
+
+    def test_animation_two(self):
+        self.anim = AnimatedTexture("Assets/enemy_flying_1.png", 8, 12)
+        self.anim.paused = False
+        self.anim.frame = 0
+        anim_loops_number = 3
+        for n in range(anim_loops_number):
+            for i in range(self.anim.max_frame):
+                self.assertEqual(self.anim.frame, i)
+                for y in range(self.anim.speed):
+                    self.anim.draw(self.surface, Vector2(0, 0))
+            self.anim.draw(self.surface, Vector2(0, 0))
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,0 +1,89 @@
+#GAME
+WINDOW_WIDTH = 1280
+WINDOW_HEIGHT = 720
+
+CAMERA_SPEED = 3
+
+PLAYER = 0
+ENEMY = 1
+
+
+LEVEL_END = 10600
+SOUNDS_PATH = "Assets/Sounds/"
+
+#GAME STATES
+MENU = 1
+PLAYING = 2
+COMPLETED = 3
+PAUSED = 4
+
+#PROJECTILES
+BULLET_SPEED = 10
+B_LEFT_BORDER = -100
+B_RIGHT_BORDER = WINDOW_WIDTH - B_LEFT_BORDER
+
+#PLAYER
+MAX_WEAPON_POWER = 3
+MAX_WEAPON_COOLDOWN = 15
+MAX_WEAPON_CHARGE = 15
+INIT_PLAYER_POS = (20, 200)
+IMMORTAL_TIME = 50
+
+#ENEMY
+#Flying soucer constants
+FS_TEXTURE = "Assets/enemy_flying_1.png"
+FS_TOP_BORDER = 100
+FS_BOTTOM_BORDER = 300
+FS_MAX_COOLDOWN = 120
+FLYING_SOUCER = "FS"
+FS_POINTS = 150
+
+
+W_MAX_COOLDOWN = 90
+WALKER = "W"
+W_POINTS = 90
+
+T_MAX_COOLDOWN = 60
+TURRET = "T"
+T_POINTS = 110
+
+S_BOTTOM_BORDER = 450
+S_TOP_BORDER = 50
+S_POINTS = 50
+SUICIDE = "S"
+
+#PARICLES
+EXP_TEXTURE = "Assets/expl_fire_1.png"
+EXP_FRAMES = 6
+EXP_ANIM_SPEED = 10
+
+
+#INFO BAR
+BAR_BG_TEXTURE = "Assets/bar.png"
+BAR_POS = (0, 600)
+
+BEAM_TEXTURE = "Assets/beam.png"
+BEAM_FILL_TEXTURE = "Assets/beam_fill.png"
+BEAM_POS = (100, 50)
+
+
+SCORE_POS = (800, 50)
+LIVES_POS = (650, 50)
+FONT = "Showcard Gothic"
+FONT_SIZE = 20
+FONT_COLOR = (61, 87, 255)
+
+
+#MENU
+#backgrounds
+MAIN_TEXTURE = "Assets/menu/menu_bg_final.png"
+CONTROLS_TEXTURE = "Assets/menu/controls_bg_final.png"
+#buttons
+NG_TEXTURE = "Assets/menu/btn_new_game2.png"
+NG_TEXTURE_S = "Assets/menu/btn_new_game2_selected.png"
+C_TEXTURE = "Assets/menu/btn_controls.png"
+C_TEXTURE_S = "Assets/menu/btn_controls_selected.png"
+E_TEXTURE = "Assets/menu/btn_exit.png"
+E_TEXTURE_S = "Assets/menu/btn_exit_selected.png"
+B_TEXTURE = "Assets/menu/btn_back.png"
+B_TEXTURE_S = "Assets/menu/btn_back_selected.png"

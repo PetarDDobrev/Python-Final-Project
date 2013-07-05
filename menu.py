@@ -3,7 +3,9 @@ import sys
 from pygame.locals import K_RETURN, K_UP, K_DOWN
 from pygame.math import Vector2
 from pygame import Rect
-from settings import*
+from settings import MAIN_TEXTURE, CONTROLS_TEXTURE, NG_TEXTURE, NG_TEXTURE_S
+from settings import C_TEXTURE, C_TEXTURE_S, E_TEXTURE, E_TEXTURE_S
+from settings import B_TEXTURE, B_TEXTURE_S
 
 
 class Button:

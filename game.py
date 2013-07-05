@@ -87,7 +87,7 @@ def initialize():
     e_fs = FlyingSoucer(Vector2(2060, 250), Vector2(0, 1), 4, fs_texture,
                         8, 5)
     enemies.append(e_fs)
-        
+
     e_fs = FlyingSoucer(Vector2(4550, 200), Vector2(0, 1), 4, fs_texture,
                         8, 5)
     enemies.append(e_fs)
@@ -162,7 +162,7 @@ def initialize():
     e_fs = FlyingSoucer(Vector2(8900, 250), Vector2(0, 1), 4, fs_texture,
                         8, 5)
     enemies.append(e_fs)
-    
+
     #walker
     w_text = "Assets/walker_1.png"
     e_walker = Walker(Vector2(1500, 420), Vector2(0, 1), 4, w_text, 3, 6)
@@ -177,7 +177,6 @@ def initialize():
     enemies.append(e_walker)
     e_walker = Walker(Vector2(10700, 420), Vector2(0, 1), 4, w_text, 3, 6)
     enemies.append(e_walker)
-    
 
     #turret
     turret_text = "Assets/turret_bot.png"
@@ -278,8 +277,9 @@ def initialize():
     e_suicide = Suicide(Vector2(7800, 300), Vector2(0, 0), 5, s_text, 6, 15)
     enemies.append(e_suicide)
 
+
 def update():
-    
+
     global game_state
     global game_state_old
     key_pressed = pygame.key.get_pressed()
@@ -293,17 +293,17 @@ def update():
     if game_state is MENU:
         if menu.update() is True:
             game_state_old = game_state
-            game_state = PLAYING            
+            game_state = PLAYING
         return
-    
+
     if CAMERA.x >= LEVEL_END:
         game_state_old = game_state
         game_state = COMPLETED
-          
+
     if key_pressed[K_ESCAPE]:
-       game_state_old = game_state
-       game_state = PAUSED
-       
+        game_state_old = game_state
+        game_state = PAUSED
+
     if key_pressed[K_r]:
         game_state = PLAYING
         initialize()
@@ -491,15 +491,6 @@ def draw():
         restart = font.render("Press  R  to restart", 1, (0, 0, 255))
         DISPLAYSURF.blit(restart, (400, 370))
 
-    if game_state is PAUSED:
-        font = pygame.font.SysFont(FONT, 80)
-        wanna_quit = font.render("Quit ?", 1, (0, 0, 255))
-        DISPLAYSURF.blit(wanna_quit, (570, 230))
-        font = pygame.font.SysFont(FONT, 60)
-        quit_yn = font.render("Y / N", 1, (0, 0, 255))
-        DISPLAYSURF.blit(quit_yn, (600, 300))
-        
-        
     if player.lives < 1:
         font = pygame.font.SysFont(FONT, 60)
         game_over = font.render("GAME OVER", 1, (255, 0, 0))
@@ -508,6 +499,14 @@ def draw():
         font.set_italic(True)
         restart = font.render("Press  R  to restart", 1, (255, 0, 0))
         DISPLAYSURF.blit(restart, (550, 370))
+
+    if game_state is PAUSED:
+        font = pygame.font.SysFont(FONT, 80)
+        wanna_quit = font.render("Quit ?", 1, (0, 0, 255))
+        DISPLAYSURF.blit(wanna_quit, (570, 230))
+        font = pygame.font.SysFont(FONT, 60)
+        quit_yn = font.render("Y / N", 1, (0, 0, 255))
+        DISPLAYSURF.blit(quit_yn, (600, 300))
 
 if __name__ == "__main__":
     main()
